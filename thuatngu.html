@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Từ điển thuật ngữ lập trình THPT</title>
+	    <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="header">
+			<div class="header-container">
+				<div class="logo-area">
+					<img src="images/logo.png" alt="logo trường">
+				    <div class="logo-text"><strong>TRƯỜNG THPT HÀN THUYÊN</strong><br>TỪ ĐIỂN THUẬT NGỮ LẬP TRÌNH</div>
+				</div>
+				<p>Dạy và học môn Tin học THPT</p>  
+				<nav class="nav">
+					<a href="gioithieu.html" target="_blank">Giới thiệu</a>
+					<a href="thuatngu.html" target="_blank">Thuật ngữ</a>
+					<a href="cautrucdulieu.html" target="_blank">Cấu trúc dữ liệu</a>
+					 <a href="thuattoan.html" target="_blank">Thuật toán</a>
+				</nav>	
+			</div>
+		</header>
+
+
+		<section id="thuatngu" class="content">
+		    <h2>Thuật ngữ cơ bản</h2>
+			<div class="main-container">
+				<!--Nội dung chính bên trái-->
+				<div class="sidebar">
+					<ul>
+						<li><a href="javascript:void(0)" onclick="showContent('bien')">1. Biến và kiểu dữ liệu</a></li>
+
+						<li><a href="javascript:void(0)" onclick="showContent('dieukhien')">2. Cấu trúc điều khiển</a></li>
+						<li><a href="javascript:void(0)" onclick="showContent('ham')">3. Hàm</a></li>
+						<li><a href="javascript:void(0)" onclick="showContent('mang')">4. Mảng</a></li>
+						<li><a href="javascript:void(0)" onclick="showContent('nxdl')">5. Nhập xuất dữ liệu</a></li>
+						<li><a href="javascript:void(0)" onclick="showContent('tncb')">6. Một số thuật ngữ cơ bản</a></li>
+					</ul>
+				</div>
+				<!--vùng hiển thị bên phải-->
+				<div class="content-display" id="contentDisplay">
+					<h3>Chọn một vùng bên trái để xem nội dung</h3>
+				</div>
+			</div>
+		</section>
+
+		<section class="innovation">
+			<h1>Hệ thống học liệu số môn Tin học THPT</h1>
+			<p>Website hỗ trợ tra cứu thuật ngữ, cấu trúc dữ liệu và thuật toán cơ bản.</p>
+		</section>
+
+		<section class="stats">
+			<div>📘Thuật Ngữ: <span id="countThuatngu"></span></div>
+			<div>📂Thuật Ngữ: <span id="countCautruc"></span></div>
+			<div>🧠Thuật toán: <span id="countThuattoan"></span></div>
+		</section>
+
+
+
+		<footer class="footer">
+		    <p>
+		        © 2026 - Sáng kiến kinh nghiệm Tin học THPT <br>
+		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN
+		    </p>
+		</footer>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Từ điển thuật ngữ lập trình THPT</title>
+	    <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="header">
+			<div class="header-container">
+				<div class="logo-area">
+					<img src="images/logo.png" alt="logo trường">
+				    <div class="logo-text"><strong>TRƯỜNG THPT HÀN THUYÊN</strong><br>TỪ ĐIỂN THUẬT NGỮ LẬP TRÌNH</div>
+				</div>
+				<p>Dạy và học môn Tin học THPT</p>  
+				<nav class="nav">
+					<a href="gioithieu.html" target="_blank">Giới thiệu</a>
+					<a href="thuatngu.html" target="_blank">Thuật ngữ</a>
+					<a href="cautrucdulieu.html" target="_blank">Cấu trúc dữ liệu</a>
+					 <a href="thuattoan.html" target="_blank">Thuật toán</a>
+				</nav>	
+			</div>
+		</header>
+
+		<section id="thuattoan" class="content">
+		    <h2>Thuật toán</h2>
+		    <section class="search-section">
+		    	<input type="text" id="searchInput" placeholder="Nhập thuật ngữ cần tìm...">
+			</section>
+		    <div class="card">
+		        <h3>Tìm kiếm tuyến tính</h3>
+		        <p>Duyệt từng phần tử để tìm giá trị cần tìm.</p>
+
+		        <pre>
+		for(int i=0;i &lt &lt n;i++){
+		    if(a[i]==x) cout &lt&lt; "Found";
+		}
+		        </pre>
+		    </div>
+		</section>
+		<section class="innovation">
+			<h1>Hệ thống học liệu số môn Tin học THPT</h1>
+			<p>Website hỗ trợ tra cứu thuật ngữ, cấu trúc dữ liệu và thuật toán cơ bản.</p>
+		</section>
+
+		<section class="stats">
+			<div>📘Thuật Ngữ: <span id="countThuatngu"></span></div>
+			<div>📂Thuật Ngữ: <span id="countCautruc"></span></div>
+			<div>🧠Thuật toán: <span id="countThuattoan"></span></div>
+		</section>
+
+
+
+		<footer class="footer">
+		    <p>
+		        © 2026 - Sáng kiến kinh nghiệm Tin học THPT <br>
+		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN
+		    </p>
+		</footer>
+		<script src="script.js"></script>
+	</body>
+</html>
