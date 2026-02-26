@@ -4,6 +4,54 @@
 	    <meta charset="UTF-8">
 	    <title>Từ điển thuật ngữ lập trình THPT</title>
 	    <link rel="stylesheet" href="style.css">
+	    <style>
+	    	.container{
+	    		width:90%;
+	    		margin:30px auto;
+	    		background:white;
+	    		padding:30px;
+	    		border-radius:15px;
+	    		box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+	    	}
+	    	h2{
+	    		corlor:#1D6BFF;
+	    		border-bottom:3px solid #1D6BFF;
+	    		padding-bottom:5px;
+	    	}
+	    	pre{
+	    		background:#111;
+	    		color:#00ff88;
+	    		padding:15px;
+	    		border-radius:8px;
+	    		overflow-x:auto;
+	    	}
+	    	button{
+	    		background:#1D6BFF;
+	    		color:white;
+	    		border:none;
+	    		padding:6px 12px;
+	    		border-radius:6px;
+	    		cursor:pointer;
+	    		margin-bottom:10px;
+	    	}
+	    	button:hover{
+	    		background:#0d47a1;
+	    	}
+	    	table{
+	    		width:100%;
+	    		border-collapse:collapse;
+	    		margin-top:20px;
+	    	}
+	    	th,td{
+	    		border:1px solid #ccc;
+	    		padding:10px;
+	    		text-align:center;
+	    	}
+	    	th{
+	    		background:#1D6BFF;
+	    		color:white;
+	    	}
+	    </style>
 	</head>
 	<body>
 		<header class="header">
@@ -14,10 +62,11 @@
 				</div>
 				<p>Dạy và học môn Tin học THPT</p>  
 				<nav class="nav">
+					<a href="index.html" target="_blank"><img src="images/OIP-removebg-preview.png" width="40" class="home-icon"></a>
 					<a href="gioithieu.html" target="_blank">Giới thiệu</a>
 					<a href="thuatngu.html" target="_blank">Thuật ngữ</a>
 					<a href="cautrucdulieu.html" target="_blank">Cấu trúc dữ liệu</a>
-					 <a href="thuattoan.html" target="_blank">Thuật toán</a>
+					<a href="thuattoan.html" target="_blank">Thuật toán</a>
 				</nav>	
 			</div>
 		</header>
@@ -27,25 +76,160 @@
 		    <section class="search-section">
 		    	<input type="text" id="searchInput" placeholder="Nhập thuật ngữ cần tìm...">
 			</section>
-		    <div class="card">
-		        <h3>Tìm kiếm tuyến tính</h3>
-		        <p>Duyệt từng phần tử để tìm giá trị cần tìm.</p>
+		    
 
-		        <pre>
-		for(int i=0;i &lt &lt n;i++){
-		    if(a[i]==x) cout &lt&lt; "Found";
-		}
-		        </pre>
-		    </div>
+<header>THUẬT TOÁN C++ & PYTHON (THPT)</header>
+
+<nav>
+<a href="#phan1">Danh sách thuật toán</a>
+<a href="#phan2">Code mẫu</a>
+</nav>
+
+<div class="container" id="phan1">
+<h2>I. Danh sách thuật toán THPT</h2>
+
+<ul>
+<li>Tìm kiếm: Linear Search, Binary Search</li>
+<li>Sắp xếp: Bubble Sort, Merge Sort</li>
+<li>Đệ quy: Giai thừa, Fibonacci</li>
+<li>Đồ thị: DFS, BFS</li>
+<li>Số học: GCD (Euclid), Sàng Eratosthenes</li>
+<li>Quy hoạch động cơ bản</li>
+</ul>
+
+<table>
+<tr>
+<th>Nhóm</th>
+<th>Thuật toán</th>
+</tr>
+<tr>
+<td>Tìm kiếm</td>
+<td>Linear, Binary</td>
+</tr>
+<tr>
+<td>Sắp xếp</td>
+<td>Bubble, Merge</td>
+</tr>
+<tr>
+<td>Đồ thị</td>
+<td>DFS, BFS</td>
+</tr>
+<tr>
+<td>Số học</td>
+<td>GCD, Sieve</td>
+</tr>
+<tr>
+<td>DP</td>
+<td>Fibonacci</td>
+</tr>
+</table>
+
+</div>
+
+<div class="container" id="phan2">
+<h2>II. Code mẫu C++ & Python</h2>
+
+<h3>1. Linear Search</h3>
+<button onclick="copyCode('ls_cpp')">Copy C++</button>
+<pre id="ls_cpp">
+int linearSearch(int a[], int n, int x){
+    for(int i=0;i&lt;n;i++){
+        if(a[i]==x) return i;
+    }
+    return -1;
+}
+</pre>
+
+<button onclick="copyCode('ls_py')">Copy Python</button>
+<pre id="ls_py">
+def linear_search(a, x):
+    for i in range(len(a)):
+        if a[i] == x:
+            return i
+    return -1
+</pre>
+
+<h3>2. Binary Search</h3>
+<button onclick="copyCode('bs_cpp')">Copy C++</button>
+<pre id="bs_cpp">
+int binarySearch(int a[], int n, int x){
+    int l=0, r=n-1;
+    while(l&lt;=r){
+        int mid=(l+r)/2;
+        if(a[mid]==x) return mid;
+        if(a[mid]&lt;x) l=mid+1;
+        else r=mid-1;
+    }
+    return -1;
+}
+</pre>
+
+<button onclick="copyCode('bs_py')">Copy Python</button>
+<pre id="bs_py">
+def binary_search(a, x):
+    l, r = 0, len(a)-1
+    while l &lt;= r:
+        mid = (l+r)//2
+        if a[mid] == x:
+            return mid
+        elif a[mid] &lt; x:
+            l = mid+1
+        else:
+            r = mid-1
+    return -1
+</pre>
+
+<h3>3. GCD (Euclid)</h3>
+<button onclick="copyCode('gcd_cpp')">Copy C++</button>
+<pre id="gcd_cpp">
+int gcd(int a,int b){
+    if(b==0) return a;
+    return gcd(b,a%b);
+}
+</pre>
+
+<button onclick="copyCode('gcd_py')">Copy Python</button>
+<pre id="gcd_py">
+def gcd(a,b):
+    if b==0:
+        return a
+    return gcd(b,a%b)
+</pre>
+
+<h3>4. Fibonacci (DP)</h3>
+<button onclick="copyCode('fib_cpp')">Copy C++</button>
+<pre id="fib_cpp">
+long long fib(int n){
+    long long dp[n+1];
+    dp[0]=0; dp[1]=1;
+    for(int i=2;i&lt;=n;i++)
+        dp[i]=dp[i-1]+dp[i-2];
+    return dp[n];
+}
+</pre>
+
+<button onclick="copyCode('fib_py')">Copy Python</button>
+<pre id="fib_py">
+def fib(n):
+    dp=[0]*(n+1)
+    dp[1]=1
+    for i in range(2,n+1):
+        dp[i]=dp[i-1]+dp[i-2]
+    return dp[n]
+</pre>
+
+</div>
+
+
 		</section>
-		<section class="innovation">
+		<!--<section class="innovation">
 			<h1>Hệ thống học liệu số môn Tin học THPT</h1>
 			<p>Website hỗ trợ tra cứu thuật ngữ, cấu trúc dữ liệu và thuật toán cơ bản.</p>
-		</section>
+		</section>-->
 
 		<section class="stats">
 			<div>📘Thuật Ngữ: <span id="countThuatngu"></span></div>
-			<div>📂Thuật Ngữ: <span id="countCautruc"></span></div>
+			<div>📂Cấu trúc dữ liệu: <span id="countCautruc"></span></div>
 			<div>🧠Thuật toán: <span id="countThuattoan"></span></div>
 		</section>
 
@@ -54,7 +238,8 @@
 		<footer class="footer">
 		    <p>
 		        © 2026 - Sáng kiến kinh nghiệm Tin học THPT <br>
-		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN
+		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN<br>
+		        Email: bichngocht15@gmail.com
 		    </p>
 		</footer>
 		<script src="script.js"></script>

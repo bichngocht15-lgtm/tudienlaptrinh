@@ -4,6 +4,43 @@
 	    <meta charset="UTF-8">
 	    <title>Từ điển thuật ngữ lập trình THPT</title>
 	    <link rel="stylesheet" href="style.css">
+	    <style>
+	    	h1{
+	    		color:#1D6BFF;
+	    		text-align:center;
+	    	}
+	    	h2{
+	    		color:#0d47a1;
+	    		border-bottom:2px solid #1d6BFF;
+	    		padding-bottom:5px;
+	    	}
+	    	h3{
+	    		color:#1565c0;
+	    	}
+	    	pre{
+	    		background:#1e1e1e;
+	    		color:#00ff88;
+	    		padding:10px;
+	    		border-radius:6px;
+	    		overflow-x:auto;
+	    	}
+	    	table,th,td{
+	    		background:#1D6BFF;
+	    		color:white;
+	    		padding:8px;
+	    	}
+	    	td{
+	    		padding:8px;
+	    		text-align:center;
+	    	}
+	    	.section{
+	    		background:white;
+	    		padding:20px;
+	    		border-radius:10px;
+	    		margin-bottom:30px;
+	    		box-shadow: 0 3px 8px rgba(0,0,0.0.08);
+	    	}
+	    </style>
 	</head>
 	<body>
 		<header class="header">
@@ -14,33 +51,226 @@
 				</div>
 				<p>Dạy và học môn Tin học THPT</p>  
 				<nav class="nav">
+					<a href="index.html" target="_blank"><img src="images/OIP-removebg-preview.png" width="40" class="home-icon"></a>
 					<a href="gioithieu.html" target="_blank">Giới thiệu</a>
 					<a href="thuatngu.html" target="_blank">Thuật ngữ</a>
 					<a href="cautrucdulieu.html" target="_blank">Cấu trúc dữ liệu</a>
-					 <a href="thuattoan.html" target="_blank">Thuật toán</a>
+					<a href="thuattoan.html" target="_blank">Thuật toán</a>
 				</nav>	
 			</div>
 		</header>
 
 		<section id="cautruc" class="content">
-		    <h2>Cấu trúc dữ liệu</h2>
 		    <section class="search-section">
 		    	<input type="text" id="searchInput" placeholder="Nhập thuật ngữ cần tìm...">
 			</section>
-		    <div class="card">
-		        <h3>Mảng (Array)</h3>
-		        <p>Tập hợp các phần tử cùng kiểu dữ liệu.</p>
-		    </div>
-		</section>
+			<div class="section">
+			<h2>I. Cấu trúc dữ liệu cơ bản</h2>
+			<h3>1. Mảng (Array)</h3>
+			<p><b>Đặc điểm:</b></p>
+				<ul>
+					<li>Lưu nhiều phần tử cùng kiểu dữ liệu</li>
+					<li>Truy cập bằng chỉ số (index)</li>
+					<li>Bộ nhớ liên tiếp</li>
+				</ul>
+			<p><b>C++:</b></p>
+<pre>
+int a[5] = {1,2,3,4,5};
+cout << a[0];  // 1
+</pre>
+			<p><b>Python:</b></p>
+<pre>
+a = [1,2,3,4,5]
+print(a[0])  # 1
+</pre>
+			<h3>2. Chuỗi (String)</h3>
+			<p><b>C++:</b></p>
+<pre>
+string s = "Hello";
+cout << s[0];  // H
+</pre>
+			<p><b>Python:</b></p>
+<pre>
+s = "Hello"
+print(s[0])  # H
+</pre>
+			<h3>3. Danh sách (List – Python) / Vector – C++</h3>
+			<p><b>C++:</b></p>
+<pre>
+#include &lt;vector&gt;
+vector&lt;int&gt; v = {1,2,3};
+v.push_back(4);
+</pre>
 
+<p><b>Python:</b></p>
+<pre>
+v = [1,2,3]
+v.append(4)
+</pre>
+
+</div>
+
+<div class="section">
+<h2>II. Cấu trúc dữ liệu tuyến tính nâng cao</h2>
+
+<h3>4. Ngăn xếp (Stack - LIFO)</h3>
+
+<p><b>C++:</b></p>
+<pre>
+#include &lt;stack&gt;
+stack&lt;int&gt; s;
+s.push(1);
+s.pop();
+</pre>
+
+<p><b>Python:</b></p>
+<pre>
+s = []
+s.append(1)
+s.pop()
+</pre>
+
+
+<h3>5. Hàng đợi (Queue - FIFO)</h3>
+
+<p><b>C++:</b></p>
+<pre>
+#include &lt;queue&gt;
+queue&lt;int&gt; q;
+q.push(1);
+q.pop();
+</pre>
+
+<p><b>Python:</b></p>
+<pre>
+from collections import deque
+q = deque()
+q.append(1)
+q.popleft()
+</pre>
+
+</div>
+
+<div class="section">
+<h2>III. Cấu trúc dữ liệu không tuyến tính</h2>
+
+<h3>6. Tập hợp (Set)</h3>
+
+<p><b>C++:</b></p>
+<pre>
+#include &lt;set&gt;
+set&lt;int&gt; s;
+s.insert(5);
+</pre>
+
+<p><b>Python:</b></p>
+<pre>
+s = {1,2,3}
+s.add(4)
+</pre>
+
+
+<h3>7. Bảng băm (Map / Dictionary)</h3>
+
+<p><b>C++:</b></p>
+<pre>
+#include &lt;map&gt;
+map&lt;string,int&gt; mp;
+mp["An"] = 10;
+</pre>
+
+<p><b>Python:</b></p>
+<pre>
+mp = {"An": 10}
+print(mp["An"])
+</pre>
+
+</div>
+
+<div class="section">
+<h2>IV. Cấu trúc dữ liệu nâng cao (HSG)</h2>
+
+<h3>8. Cây (Tree)</h3>
+<ul>
+<li>Cây nhị phân</li>
+<li>Cây tìm kiếm nhị phân (BST)</li>
+<li>Duyệt DFS, BFS</li>
+</ul>
+
+<h3>9. Đồ thị (Graph)</h3>
+<ul>
+<li>Ma trận kề</li>
+<li>Danh sách kề</li>
+<li>Thuật toán DFS, BFS</li>
+</ul>
+
+</div>
+
+<div class="section">
+<h2>Tổng kết nhanh</h2>
+
+<table>
+<tr>
+<th>Cấu trúc</th>
+<th>C++</th>
+<th>Python</th>
+</tr>
+
+<tr>
+<td>Mảng</td>
+<td>int a[10]</td>
+<td>list</td>
+</tr>
+
+<tr>
+<td>Chuỗi</td>
+<td>string</td>
+<td>str</td>
+</tr>
+
+<tr>
+<td>Danh sách động</td>
+<td>vector</td>
+<td>list</td>
+</tr>
+
+<tr>
+<td>Stack</td>
+<td>stack</td>
+<td>list</td>
+</tr>
+
+<tr>
+<td>Queue</td>
+<td>queue</td>
+<td>deque</td>
+</tr>
+
+<tr>
+<td>Set</td>
+<td>set</td>
+<td>set</td>
+</tr>
+
+<tr>
+<td>Map</td>
+<td>map</td>
+<td>dict</td>
+</tr>
+
+</table>
+
+</div>
+		</section>
+		<!--
 		<section class="innovation">
 			<h1>Hệ thống học liệu số môn Tin học THPT</h1>
 			<p>Website hỗ trợ tra cứu thuật ngữ, cấu trúc dữ liệu và thuật toán cơ bản.</p>
-		</section>
+		</section>-->
 
 		<section class="stats">
 			<div>📘Thuật Ngữ: <span id="countThuatngu"></span></div>
-			<div>📂Thuật Ngữ: <span id="countCautruc"></span></div>
+			<div>📂Cấu trúc dữ liệu: <span id="countCautruc"></span></div>
 			<div>🧠Thuật toán: <span id="countThuattoan"></span></div>
 		</section>
 
@@ -49,7 +279,8 @@
 		<footer class="footer">
 		    <p>
 		        © 2026 - Sáng kiến kinh nghiệm Tin học THPT <br>
-		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN
+		        Tác giả: NGUYỄN THỊ BÍCH NGỌC - THPT HÀN THUYÊN<br>
+		        Email: bichngocht15@gmail.com
 		    </p>
 		</footer>
 		<script src="script.js"></script>

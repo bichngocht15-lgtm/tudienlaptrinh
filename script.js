@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+
+
 function showContent(type){
 
     const content = document.getElementById("contentDisplay");
@@ -1034,8 +1036,19 @@ import math
 }
 
 
+
 document.addEventListener("DOMContentLoaded", function(){
     showContent("bien");
+});
+documnet.addEventListener("scroll",function(){
+	const reveals=document.querySelectorAll(".reveal");
+	reveals.forEach(function(card){
+		const windowHeight=window.innerHeight;
+		const elemenTop=card.getBoundingClientRect().top;
+		if(elementTop<windowHeight-100){
+			card.classList.add("active");
+		}
+	});
 });
 document.getElementById("countThuatngu").textContent=document.querySelectorAll("#thuatngu.card").length;
 document.getElementById("countCautruc").textContent=document.querySelectorAll("#cautruc.card").length;
