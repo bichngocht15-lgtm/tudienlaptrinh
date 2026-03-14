@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-document.addEventListener("DOMContentLoaded", function(){
+/*document.addEventListener("DOMContentLoaded", function(){
     const searchInput = document.getElementById("searchInput");
     if(!searchInput) return;   // nếu không có thì dừng
     const cards = document.querySelectorAll(".card");
@@ -34,8 +34,32 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
     });
+});*/
+
+//lấy tất cả các link trong menu
+const links=document.querySelectorAll(".nav a");
+//lấy tên file hiện tại
+const currentPage=window.location.pathname.split("/").pop();
+//duyệt từng link
+links.forEach(link=>{
+	if(link.getAttribute("href")==currentPage){
+		link.classList.add("active");
+	}
 });
 
+document.addEventListener("DOMContentLoaded",function(){
+	const sidebarLinks=document.querySelectorAll(".sidebar a");
+	sidebarLinks.forEach(link=>{
+		link.addEventListener("click",function(){
+			//xoa acitve o tat ca cac muc
+			sidebarLinks.forEach(item=>{
+				item.classList.remove("active");
+			});
+			//them active vao muc vua click
+			this.classList.add("active");
+		});
+	});
+});
 
 
 function showContent(type){
@@ -44,10 +68,71 @@ function showContent(type){
 
     if(type === "bien"){
         content.innerHTML = `
-            <h2>Biến và kiểu dữ liệu</h2>
+            <section   class="control-structure">
+            <h2 style="color:red">1.1 Biến</h2>
 
-            <p><strong>Biến (Variable):</strong> Biến (variable) là một vùng nhớ trong máy tính dùng để lưu trữ dữ liệu, và giá trị của nó có thể thay đổi trong quá trình chương trình chạy.</p>
-
+            <p><strong>Biến (Variable):</strong> là một vùng nhớ trong máy tính dùng để lưu trữ dữ liệu, và giá trị của nó có thể thay đổi trong quá trình chương trình chạy.</p>
+            <p>
+            	<b>Thành phần của biến:</b>
+            	<ul>
+            		<li>Tên biến</li>
+            		<li>Kiểu dữ liệu</li>
+            		<li>Giá trị</li>
+            	</ul>
+            </p>
+            <p>
+            	<strong>Quy tắc đặt tên biến</strong>
+            	<ul>
+            		<li>Không bắt đầu bằng số</li>
+            		<li>Không chứa khoảng trắng</li>
+            		<li>Không trùng từ khóa (int, float, if, while,…)</li>
+            		<li>Phân biệt chữ hoa – chữ thường</li>
+            	</ul>
+            </p>
+            <p>
+            	<strong>Sự khác nhau giữa C++ và Python</strong><br>
+            	<table border="1">
+            		<tr>
+            			<th>So sánh</th>
+            			<th>C++</th>
+            			<th>Python</th>
+            		</tr>
+            		<tr>
+            			<td style="padding: 10px; font-weight: bold;">Cú pháp</td>
+            			<td style="padding: 10px;"><span style="color:blue">kiểu_dữ_liệu</span> <span style="color:#CC0000"> tên_biến</span><br><b> hoặc </b><span style="color:blue">kiểu_dữ_liệu</span><span style="color:#CC0000"> tên_biến_ = giá_trị</span></td>
+            			<td><span style="color:#CC0000">tên_biến = giá_trị</span></td>
+            		</tr>
+            		<tr>
+            			<td style="padding: 10px; font-weight: bold;">Đặc điểm của biến</td>
+            			<td style="padding: 10px;">Phải khai báo kiểu dữ liệu trước khi dùng<br>Kiểu dữ liệu cố định (không tự đổi)<br>Chiếm bộ nhớ cụ thể</td>
+            			<td>Không cần khai báo kiểu<br>Kiểu dữ liệu tự xác định<br>Có thể thay đổi kiểu</td>
+            		</tr>
+            		<tr>
+            			<td style="padding: 10px; font-weight: bold;">Ví dụ</td>
+            			<td style="padding: 10px;"><strong>int</strong> age = 18;<br><strong>float</strong> score = 8.5;<br><strong>char</strong> grade = 'A';<br><strong>bool</strong> passed = true;</td>
+            			<td>age = 18<br>score = 8.5<br>name = "An"<br>passed = True</td>
+            		</tr>
+            	</table>                            	
+            </p>
+            <h2 style="color:red" class="term">1.2 Hằng</h2>
+            <p><strong>Hằng (constant):</strong> có giá trị không thay đổi trong suốt quá trình thực thi của một chương trình hoặc trong một phạm vi tính toán nhất định.</p>
+            <p>
+            	<b>Thành phần của hằng:</b>
+            	<ul>
+            		<li>Từ khóa khai báo</li>
+            		<li>Kiểu dữ liệu</li>
+            		<li>Tên hằng</li>
+            		<li>Giá trị khởi tạo</li>
+            	</ul>
+            	<b>Ví dụ: </b> <br><span style="color:purple">const float</span> PI=3.14159;<br><span style="color:purple">const int</span> MAX_SCORE=100;
+            </p>
+            <p>
+            	<strong>Quy tắc đặt tên hằng:</strong> Thường viết hoa toàn bộ và dùng dấu gạch dưới để phân biệt với biến thông thường.
+            	<br><strong>Ví dụ:</strong>MAX_SPEED, PI, API_URL.
+            
+            </p>
+            <h2 style="color:red">1.3 Kiểu dữ liệu</h2>
+            <p><strong>Kiểu dữ liệu:</strong> Quy định dạng dữ liệu, ảnh hưởng đến bộ nhớ và phép toán.</p>
             <h4>Kiểu dữ liệu cơ bản trong c++:</h4>
 		    <table style="width:100%; border-collapse:collapse; background-color:white;border:1px solid #ccc">
 			    <thead style="background-color:#f0f0f0;">
@@ -168,72 +253,279 @@ tuoi = 16     # int (số nguyên)
 diem = 8.5    # float (số thực)
 dat = True    # bool (đúng/sai)
             </pre>
+          </section>
+        `;
+    }
+
+    if(type === "hang"){
+        content.innerHTML = `
+            <section   class="control-structure">
+            <h2 style="color:red" class="term">1.2 Hằng</h2>
+            <p><strong>Hằng (constant):</strong> có giá trị không thay đổi trong suốt quá trình thực thi của một chương trình hoặc trong một phạm vi tính toán nhất định.</p>
+            <p>
+            	<b>Thành phần của hằng:</b>
+            	<ul>
+            		<li>Từ khóa khai báo</li>
+            		<li>Kiểu dữ liệu</li>
+            		<li>Tên hằng</li>
+            		<li>Giá trị khởi tạo</li>
+            	</ul>
+            	<b>Ví dụ: </b> <br><span style="color:purple">const float</span> PI=3.14159;<br><span style="color:purple">const int</span> MAX_SCORE=100;
+            </p>
+            <p>
+            	<strong>Quy tắc đặt tên hằng:</strong> Thường viết hoa toàn bộ và dùng dấu gạch dưới để phân biệt với biến thông thường.
+            	<br><strong>Ví dụ:</strong>MAX_SPEED, PI, API_URL.
+            
+            </p>
+          </section>
+        `;
+    }
+
+    if(type === "kieudl"){
+        content.innerHTML = `
+            <section   class="control-structure">
+           <h2 style="color:red">1.3 Kiểu dữ liệu</h2>
+            <p><strong>Kiểu dữ liệu:</strong> Quy định dạng dữ liệu, ảnh hưởng đến bộ nhớ và phép toán.</p>
+            <h4>Kiểu dữ liệu cơ bản trong c++:</h4>
+		    <table style="width:100%; border-collapse:collapse; background-color:white;border:1px solid #ccc">
+			    <thead style="background-color:#f0f0f0;">
+			        <tr>
+			            <th font-weight: bold>Kiểu</th>
+			            <th font-weight: bold;>Kích thước (thường gặp)</th>
+			            <th font-weight: bold;>Miền giá trị</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td><span class="tag">int</span></td>
+			            <td>4 byte</td>
+			            <td>−2,147,483,648 → 2,147,483,647</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">unsigned int</span></td>
+			            <td>4 byte</td>
+			            <td>0 → 4,294,967,295</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">short</span></td>
+			            <td>2 byte</td>
+			            <td>−32,768 → 32,767</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">long long</span></td>
+			            <td>8 byte</td>
+			            <td>−9×10<sup>18</sup> → 9×10<sup>18</sup></td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">float</span></td>
+			            <td>4 byte</td>
+			            <td>±3.4×10<sup>38</sup> (≈ 7 chữ số chính xác)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">double</span></td>
+			            <td>8 byte</td>
+			            <td>±1.7×10<sup>308</sup> (≈ 15 chữ số chính xác)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">char</span></td>
+			            <td>1 byte</td>
+			            <td>−128 → 127 (hoặc 0 → 255)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">bool</span></td>
+			            <td>1 byte</td>
+			            <td><span class="tag">true</span> (1) hoặc <span class="tag">false</span> (0)</td>
+			        </tr>
+			    </tbody>
+			</table>
+          <h4>Kiểu dữ liệu cơ bản trong python:</h4>
+            <table style="width:100%; border-collapse:collapse; background-color:white; border:1px solid #ccc;">
+			    <thead style="background-color:#f0f0f0;">
+			        <tr>
+			            <th font-weight: bold>Kiểu</th>
+			            <th font-weight: bold>Miền giá trị</th>
+			            <th font-weight: bold>Ghi chú</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td><span class="tag">int</span></td>
+			            <td>Không giới hạn (phụ thuộc RAM)</td>
+			            <td>Số nguyên</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">float</span></td>
+			            <td>±1.7×10<sup>308</sup></td>
+			            <td>Số thực (≈ 15 chữ số chính xác)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">bool</span></td>
+			            <td><span class="tag">True</span> hoặc <span class="tag">False</span></td>
+			            <td>Kiểu đúng / sai</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">str</span></td>
+			            <td>Không giới hạn độ dài (tùy RAM)</td>
+			            <td>Chuỗi ký tự</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">list</span></td>
+			            <td>Không giới hạn (tùy RAM)</td>
+			            <td>Danh sách</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">tuple</span></td>
+			            <td>Không giới hạn (tùy RAM)</td>
+			            <td>Bộ dữ liệu (không đổi)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">dict</span></td>
+			            <td>Không giới hạn (tùy RAM)</td>
+			            <td>Từ điển (key - value)</td>
+			        </tr>
+			        <tr>
+			            <td><span class="tag">None</span></td>
+			            <td>Chỉ có một giá trị duy nhất</td>
+			            <td>Giá trị rỗng</td>
+			        </tr>
+			    </tbody>
+			</table>
+            <h4>Ví dụ:</h4>
+            <pre>
+C++:
+int a = 5;
+string ten = "An";   // chuỗi
+int tuoi = 16;       // số nguyên
+double diem = 8.5;   // số thực
+bool dat = true;     // đúng/sai
+
+Python:
+ten = "An"    # str (chuỗi)
+tuoi = 16     # int (số nguyên)
+diem = 8.5    # float (số thực)
+dat = True    # bool (đúng/sai)
+            </pre>
+          </section>
         `;
     }
 
     if(type === "dieukhien"){
         content.innerHTML = `
-            <h2>Cấu trúc điều khiển</h2>
             <section class="control-structure">
     		<p>
 		        <strong>Cấu trúc điều khiển (Control Structures)</strong> là các thành phần trong chương trình 
 		        dùng để điều khiển thứ tự thực hiện các câu lệnh. 
 		        Nhờ đó chương trình có thể rẽ nhánh, lặp lại hoặc kết thúc theo điều kiện.
 		    </p>
-    <hr>
-    <h3>a. Cấu trúc tuần tự (Sequential Structure)</h3>
-    <p>Các câu lệnh được thực hiện lần lượt từ trên xuống dưới.</p>
-
-    <div class="code-box">
-        <h4>Ví dụ C++</h4>
-        <pre>
+		    <hr>
+		    <h3 style="color:red">2.1. Cấu trúc tuần tự (Sequential Structure)</h3>
+		    <p>Các câu lệnh được thực hiện lần lượt từ trên xuống dưới.</p>
+		     <details>
+		    <div class="code-box">
+		        <h5>Ví dụ C++</h5>
+		<pre>
 int a = 5;
 int b = 3;
 int c = a + b;
-cout << c;
-        </pre>
-
-        <h4>Ví dụ Python</h4>
+cout << c;</pre>
+        <h5>Ví dụ Python</h5>
         <pre>
 a = 5
 b = 3
 c = a + b
-print(c)
-        </pre>
-    </div>
-
-    <hr>
-
-    <h3>b. Cấu trúc rẽ nhánh (Selection Structure)</h3>
-    <p>
-        Cho phép chương trình lựa chọn thực hiện một trong nhiều nhánh lệnh 
-        dựa trên điều kiện đúng hoặc sai.
-    </p>
-
-    <h4>*. Câu lệnh if - else</h4>
-
-    <div class="code-box">
-        <h5>C++</h5>
-        <pre>
-if (a > 0) {
+print(c)</pre>
+		    </div>
+		    </details>
+		    <hr>
+		    <h3 style="color:red">2.2. Cấu trúc rẽ nhánh (Selection Structure)</h3>
+		    <p>
+		        Cho phép chương trình lựa chọn thực hiện một trong nhiều nhánh lệnh 
+		        dựa trên điều kiện đúng hoặc sai.
+		    </p>
+		    <details>
+		    <h4 style="color:blue">2.2.1. Câu lệnh if</h4>
+		    <div class="note">
+			<p><strong>Dạng thiếu:</strong> Chỉ thực hiện khối lệnh khi điều kiện đúng. 
+			Nếu điều kiện sai thì chương trình bỏ qua.</p>
+			</div>
+			<div class="code-box">
+				<div class="box">
+				<h5>C++</h5>
+				<pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold">
+				if (điều_kiện) {
+				    // khối lệnh
+				} </pre>
+<pre>
+int x = 5;
+if (x > 0) {
+    cout << "So duong";
+}</pre>
+				</div>
+				<div class="box">
+				<h5>Python</h5>
+				<pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold">
+				if điều_kiện:
+				    # khối lệnh </pre>
+<pre>
+x = 5
+if x > 0:
+    print("Số dương")
+</pre>
+				</div>
+			</div>
+		    
+		    <div class="note">
+			<p><strong>Dạng đủ:</strong> <br>Nếu điều kiện đúng → thực hiện nhánh 1<br>Nếu điều kiện sai → thực hiện nhánh 2.</p>
+			</div>
+			<div class="code-box">
+        	<h5>C++</h5>
+        		<pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold">
+				if (điều_kiện) {
+				    // khối lệnh khi đúng
+				}
+				else {
+				    // khối lệnh khi sai
+				}</pre>
+<pre>if (a > 0) {
     cout << "So duong";
 } else {
     cout << "So am";
-}
-        </pre>
+}</pre>
 
-        <h5>Python</h5>
+        	<h5>Python</h5>
+	        	<pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold">
+				if điều_kiện:
+				    # khối lệnh khi đúng
+				else:
+				    # khối lệnh khi sai</pre>
         <pre>
 if a > 0:
     print("So duong")
 else:
-    print("So am")
-        </pre>
+    print("So am")</pre>
     </div>
 
-    <h4>*. Câu lệnh switch (C++ only)</h4>
+    		<h4 style="color:blue">2.2.2. Câu lệnh switch (C++ only)</h4>
+    		 <div class="note">
+			<p><strong>Switch</strong> là cấu trúc rẽ nhánh dùng để so sánh một biểu thức với nhiều giá trị cụ thể..</p>
+			</div>
 
     <div class="code-box">
+    		<pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold">
+				switch (biểu_thức) {
+				    case giá_trị_1:
+				        // khối lệnh 1
+				        break;
+
+				    case giá_trị_2:
+				        // khối lệnh 2
+				        break;
+
+				    ...
+
+				    default:
+				        // khối lệnh mặc định
+				}</pre>
         <pre>
 switch(a) {
     case 1:
@@ -247,21 +539,30 @@ switch(a) {
 }
         </pre>
     </div>
-
+    	</details>
     <hr>
-
-    <h3>c. Cấu trúc lặp (Loop Structure)</h3>
+    <h3 style="color:red">2.3. Cấu trúc lặp (Loop Structure)</h3>
     <p>Cho phép thực hiện một khối lệnh nhiều lần khi điều kiện còn đúng.</p>
 
-    <h4>*. Vòng lặp for</h4>
+    <h4 style="color:blue">2.3.1. Vòng lặp for</h4>
 
     <div class="code-box">
         <h5>C++</h5>
+        <p align=center>
+        	<span style="color:#990099">for</span>(<span style="color:#CC6666">khoi_tao; dieu_kien; cap_nhat</span>){<br>
+        		//khối lệnh
+        	}
+        </p>
+        <p><strong>Giải thích:</strong></p>
+        <ul>
+        	<li>Khởi tạo: tạo biến đếm (thường là int i=0)</li>
+        	<li>Điều kiện: vòng lặp chạy khi điều kiện còn đúng</li>
+        	<li>Cập nhật: thay đổi sau mỗi lần lặp</li>
+        </ul>
         <pre>
 for(int i = 0; i < 5; i++) {
     cout << i;
-}
-        </pre>
+}</pre>
 
         <h5>Python</h5>
         <pre>
@@ -270,7 +571,7 @@ for i in range(5):
         </pre>
     </div>
 
-    <h4>*. Vòng lặp while</h4>
+    <h4 style="color:blue">2.3.2. Vòng lặp while</h4>
 
     <div class="code-box">
         <h5>C++</h5>
@@ -291,7 +592,7 @@ while i < 5:
         </pre>
     </div>
 
-    <h4>c. do - while (Chỉ có trong C++)</h4>
+    <h4 style="color:blue">2.3.3. do - while (Chỉ có trong C++)</h4>
 
     <div class="code-box">
         <pre>
@@ -305,7 +606,7 @@ do {
 
     <hr>
 
-    <h3>d. Câu lệnh điều khiển phụ</h3>
+    <h3 style="color:red">2.4. Câu lệnh điều khiển phụ</h3>
     <ul>
         <li><strong>break:</strong> Thoát khỏi vòng lặp ngay lập tức.</li>
         <li><strong>continue:</strong> Bỏ qua lần lặp hiện tại.</li>
@@ -314,7 +615,7 @@ do {
 
     <hr>
 
-    <h3>e. So sánh C++ và Python</h3>
+    <h3 style="color:red">2.5. So sánh C++ và Python</h3>
 
     <table border="1" cellpadding="8" cellspacing="0">
         <tr>
@@ -1036,23 +1337,95 @@ import math
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function(){
     showContent("bien");
 });
-documnet.addEventListener("scroll",function(){
+document.addEventListener("scroll",function(){
 	const reveals=document.querySelectorAll(".reveal");
 	reveals.forEach(function(card){
 		const windowHeight=window.innerHeight;
-		const elemenTop=card.getBoundingClientRect().top;
+		const elementTop=card.getBoundingClientRect().top;
 		if(elementTop<windowHeight-100){
 			card.classList.add("active");
 		}
 	});
 });
-document.getElementById("countThuatngu").textContent=document.querySelectorAll("#thuatngu.card").length;
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const searchInput = document.getElementById("searchInput");
+
+    if(!searchInput) return;
+
+    searchInput.addEventListener("keyup", function(){
+
+        let keyword = this.value.toLowerCase().trim();
+
+        if(keyword === "") return;
+
+        // Map từ khóa với từng mục
+        const mapping = {
+            "biến": "bien",
+            "hằng": "hang",
+            "kiểu": "kieudl",
+            "điều khiển": "dieukhien",
+            "if": "dieukhien",
+            "for": "dieukhien",
+            "while": "dieukhien",
+            "hàm": "ham",
+            "function": "ham",
+            "mảng": "mang",
+            "array": "mang",
+            "list": "mang",
+            "nhập": "nxdl",
+            "xuất": "nxdl",
+            "input": "nxdl",
+            "output": "nxdl",
+            "toán tử": "tncb",
+            "thư viện": "tncb"
+        };
+
+        for(let key in mapping){
+            if(keyword.includes(key)){
+                showContent(mapping[key]);
+
+                setTimeout(() => {
+                    highlightText(keyword);
+                    document.getElementById("contentDisplay")
+                            .scrollIntoView({behavior:"smooth"});
+                }, 200);
+
+                return;
+            }
+        }
+
+    });
+
+});
+
+function highlightText(keyword){
+
+    const content = document.getElementById("contentDisplay");
+
+    let innerHTML = content.innerHTML;
+
+    // Xóa highlight cũ
+    innerHTML = innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, "$1");
+
+    if(keyword === "") return;
+
+    const regex = new RegExp(`(${keyword})`, "gi");
+
+    innerHTML = innerHTML.replace(regex, `<span class="highlight">$1</span>`);
+
+    content.innerHTML = innerHTML;
+}
+
+
+
+/*document.getElementById("countThuatngu").textContent=document.querySelectorAll("#thuatngu.card").length;
 document.getElementById("countCautruc").textContent=document.querySelectorAll("#cautruc.card").length;
-document.getElementById("countThuatoan").textContent=document.querySelectorAll("#thuattoan.card").length;
+document.getElementById("countThuatoan").textContent=document.querySelectorAll("#thuattoan.card").length;*/
 
 
 
