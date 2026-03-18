@@ -51,7 +51,7 @@
 				</div>
 				<p>Dạy và học môn Tin học THPT</p>  
 				<nav class="nav">
-					<a href="index.html" target="_blank"><img src="OIP-removebg-preview.png" width="40" class="home-icon"></a>
+					<a href="index.html" target="_blank"><img src="images/OIP-removebg-preview.png" width="40" class="home-icon"></a>
 					<a href="gioithieu.html" target="_blank">Giới thiệu</a>
 					<a href="thuatngu.html" target="_blank">Thuật ngữ</a>
 					<a href="cautrucdulieu.html" target="_blank">Cấu trúc dữ liệu</a>
@@ -60,29 +60,150 @@
 			</div>
 		</header>
 
+		<section id="cautrucdulieu" class="content">
+			<div class="main-container">
+				<!--Nội dung chính bên trái-->
+				<div class="sidebar">
+					<ol>
+						<li>
+							Cấu trúc dữ liệu cơ bản
+							<ol class="number">
+								<li>
+									<details>						
+										<summary>Mảng</summary>
+											<ul style="color:#BB0000">
+												<li>
+													<a href="javascript:void(0)" onclick="loadPage('ctdl_mang1c.html')">
+														1.1. Cấu trúc dữ liệu mảng 1 chiều
+													</a>
+												</li>
+												<li>1.2. Cấu trúc dữ liệu mảng 2 chiều</li>
+											</ul>
+									</details>			
+								</li>
+								<li>Danh sách</li>
+								<li>Ngăn xếp</li>
+								<li>Hàng đợi</li>
+							</ol>
+						</li>
+
+						<li>Cấu trúc dữ liệu tuyến tính nâng cao</li>
+						<li>Cấu trúc dữ liệu không tuyến tính</li>
+						<li>Cấu trúc dữ liệu nâng cao</li>
+					</ol>
+				</div>
+				<!--vùng hiển thị bên phải-->
+				<div class="content-display" id="noidung">
+				</div>
+			</div>
+		</section>
+
+	
+
+		<!--
 		<section id="cautruc" class="content">
 		    <section class="search-section">
 		    	<input type="text" id="searchInput" placeholder="Nhập thuật ngữ cần tìm...">
 			</section>
 			<div class="section">
 			<h2>I. Cấu trúc dữ liệu cơ bản</h2>
-			<h3>1. Mảng (Array)</h3>
-			<p><b>Đặc điểm:</b></p>
+			<h3>1️⃣. Mảng (Array) - C++</h3>
+			<p><b>Khái niệm:</b></p>
 				<ul>
-					<li>Lưu nhiều phần tử cùng kiểu dữ liệu</li>
-					<li>Truy cập bằng chỉ số (index)</li>
-					<li>Bộ nhớ liên tiếp</li>
+					<li>Mảng là tập hợp nhiều phần tử có cùng kiểu dữ liệu, được lưu trữ liên tiếp trong bộ nhớ</li>
+					<li>Mỗi phần tử được truy cập thông qua chỉ số (index), bắt đầu từ 0</li>
+					<li>Mảng giúp tổ chức dữ liệu cùng loại để xử lý dễ dàng hơn.</li>
 				</ul>
-			<p><b>C++:</b></p>
-<pre>
-int a[5] = {1,2,3,4,5};
-cout << a[0];  // 1
-</pre>
-			<p><b>Python:</b></p>
-<pre>
-a = [1,2,3,4,5]
-print(a[0])  # 1
-</pre>
+			<p><b>Đặc điểm</b></p>
+			    <ul>
+			        <li><strong>Cố định kích thước:</strong> số lượng phần tử được xác định khi khai báo.</li>
+			        <li><strong>Cùng kiểu dữ liệu:</strong> không thể chứa nhiều kiểu khác nhau.</li>
+			        <li><strong>Truy cập nhanh:</strong> do lưu liên tiếp trong bộ nhớ, truy xuất theo index rất hiệu quả.</li>
+			    </ul>
+			 <p><b>Cú pháp</b></p>
+		    <pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold; font-size:18px;"><code>kiểu_dữ_liệu tên_mảng[kích_thước];</code></pre>
+		     <p><b>Khởi tạo</b></p>
+    <pre><code>int a[5] = {1, 2, 3, 4, 5}; // Gán giá trị ngay khi khai báo
+int a2[5] = {0};             // Gán tất cả phần tử = 0</code></pre>
+
+    		 <p><b>Truy xuất và thao tác</b></p>
+			    <ul>
+			        <li>Truy xuất: <code>a[index]</code></li>
+			        <li>Thay đổi: <code>a[2]=10;</code></li>
+			    </ul>
+			 <p><b>Duyệt bằng vòng lặp</b></p>
+
+    <pre><code>for(int i = 0; i &lt; 5; i++){
+    cout &lt;&lt; a[i] &lt;&lt; " ";
+}</code></pre>
+			 <p><b>Ưu điểm</b></p>			     
+			    <ul>
+			        <li>Truy xuất nhanh, hiệu suất cao.</li>
+			        <li>Dễ quản lý dữ liệu cùng kiểu.</li>
+			    </ul>
+			<p><b>Hạn chế</b></p>	
+				<ul>
+			        <li>Kích thước cố định, khó thay đổi.</li>
+			        <li>Không chứa nhiều kiểu dữ liệu khác nhau.</li>
+			        <li>Cần cẩn thận với index, nếu truy xuất ngoài phạm vi → lỗi runtime.</li>
+			    </ul>
+			<h3>2️⃣ Mảng (Array) - Python</h3>
+			<p><b>Khái niệm:</b></p>
+				<ul>
+					<li>Python không có mảng tĩnh như C++, thay vào đó sử dụng <strong>list</strong>.</li>
+			        <li>List là tập hợp các phần tử có thể cùng hoặc khác kiểu dữ liệu.</li>
+			        <li>Dữ liệu trong list được truy cập thông qua chỉ số, bắt đầu từ 0.</li>
+				</ul>
+			<p><b>Đặc điểm</b></p>
+			    <ul>
+			        <li><strong>Kích thước linh hoạt:</strong> có thể thêm hoặc xóa phần tử bất kỳ lúc nào.</li>
+			        <li><strong>Có thể chứa nhiều kiểu dữ liệu:</strong> int, float, string, boolean…</li>
+			        <li>Truy cập nhanh theo index.</li>
+			        <li>Hỗ trợ slicing, iteration và nhiều phương thức hữu ích.</li>
+			    </ul>
+			 <p><b>Cú pháp</b></p>
+		     <pre style="background-color:#f4f6f8; color:#A0522D; font-weight:bold; font-size:18px;"><code># Khai báo list rỗng</code>
+arr = []</pre>
+<pre><code># Khởi tạo list
+a = [1, 2, 3, 4, 5]
+# List với giá trị mặc định
+a = [0] * 5
+# List nhiều kiểu dữ liệu
+a = [1, "s", True]</code></pre>
+    		 <p><b>Truy xuất và thao tác</b></p>
+			    <ul>
+			        <li>Truy xuất: <code>a[index]</code></li>
+			        <li>Thay đổi: <code>a[2]=10;</code></li>
+			        <li>Thêm phần tử:<br> 
+			        		a.append(6)
+			        		<br>a.insert(1,9)</li>
+			        <li>Xóa phần tử: <br>a.pop()<br>a.pop(2)<br>del a[1]</li>
+			    </ul>
+			 <p><b>Duyệt bằng vòng lặp</b></p>
+<pre><code>
+for i in arr:
+    print(i)
+
+for index, value in enumerate(arr):
+    print(index, value)</code></pre> 
+			 <p><b>Ưu điểm</b></p>			     
+			    <ul>
+			        <li>Linh hoạt, dễ thay đổi kích thước.</li>
+			        <li>Có thể chứa nhiều kiểu dữ liệu khác nhau.</li>
+			        <li>Hỗ trợ nhiều phương thức thao tác mạnh mẽ.</li>
+			    </ul>
+			<p><b>Hạn chế</b></p>	
+				<ul>
+			        <li>Hiệu suất truy xuất chậm hơn mảng C++ khi dữ liệu lớn.</li>
+        			<li>Tiêu tốn bộ nhớ hơn so với mảng tĩnh.</li>
+			    </ul>
+
+
+
+
+
+
+
 			<h3>2. Chuỗi (String)</h3>
 			<p><b>C++:</b></p>
 <pre>
@@ -262,11 +383,28 @@ print(mp["An"])
 
 </div>
 		</section>
+	-->
 		<!--
 		<section class="innovation">
 			<h1>Hệ thống học liệu số môn Tin học THPT</h1>
 			<p>Website hỗ trợ tra cứu thuật ngữ, cấu trúc dữ liệu và thuật toán cơ bản.</p>
 		</section>-->
+
+		<script>
+			function loadPage(file){
+				fetch(file)
+				.then(response=>response.text())
+				.then(data=>{
+					document.getElementById("noidung").innerHTML=data;
+				})
+				.catch(error=>{
+					document.getElementById("noidung").innerHTML="Lỗi load nội dung";
+				});
+			}
+		window.onload=function(){
+			loadPage("ctdl_mang1c.html");
+		}
+		</script>
 
 		<section class="stats">
 			<div>📘Thuật Ngữ: <span id="countThuatngu"></span></div>
