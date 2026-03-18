@@ -1,0 +1,235 @@
+<h2>Cấu trúc dữ liệu mảng 1 chiều c++ - list Python</h2>
+<h3 style="color:red">1. Khái niệm</h3>
+<p>
+    - Mảng một chiều là cấu trúc dữ liệu tuyến tính, là cấu trúc dữ liệu bao gồm một dãy các phần tử có cùng kiểu.<br>
+    - Trong python, dữ liệu mảng một chiều có thể được biểu diễn bằng danh sách (list) với các phần tử cùng kiểu dữ liệu. 
+</p>
+<ul style="list-style-type:square">
+    <li>Truy cập bằng chỉ số</li>
+    <li>Các phần tử liên tiếp trong bộ nhớ</li>
+</ul>
+<p>Tính chất:</p>
+<ul style="list-style-type:square">
+    <li>Thuận tiện trong việc truy xuất dữ liệu</li>
+    <li>Các phần tử trong mảng được gán chỉ số </li>
+    <li>Kích thước cố định, không thể mở rộng và thu hẹp</li>
+</ul>
+<h3>2. Cú pháp khai báo mảng:</h3>
+<h4 style="color:red">2.1 Cú pháp khai báo mảng Python</h4>
+<div align="center" style="border:1px solid black; padding:10px; margin:10px; color:brown;background-color:honeydew; width:70%;"><strong>tên_biến=[phần_tử_1, phần_tử_2, phần_tử_3, ...]</strong></div>
+<p> Ví du:<br>
+    <ul>
+        <li>Mảng rỗng</li>
+        <code style="display:block; margin-left:80px; font-size:14px">my_list=[]</span></code><br>
+        <li>Các phần tử có giá trị ngẫu nhiên</li>
+        <code style="display:block; margin-left:80px; font-size:14px">a=[0]*100</span></code><br>
+        <li>Mảng có giá trị khởi tạo</li>
+        <code style="display:block; margin-left:80px; font-size:14px">numbers=[1,2,3,4,5]
+        <br>fruits=["táo","chuối","cam"] </code>  
+    </ul>
+<h4 style="color:red">2.2 Cú pháp khai báo mảng trong c++</h4>
+<div align="center" style="border:1px solid black; padding:10px; margin:10px; color:brown;background-color:honeydew;width:70%;"><strong>Kiểu_Dữ_liệu tên_mảng[Số_lượng_phần_tử]</strong></div>
+<p> Ví dụ:<br>
+    <ul>
+        <li>Mảng với các giá trị ngẫu nhiên</li>
+        <code style="display:block; margin-left:80px; font-size:14px">int a[100];</span></code><br>
+        <li>Các phần tử có giá trị cụ thể</li>
+        <code style="display:block; margin-left:80px; font-size:14px">b[6]={2,8,0,4,2,5};
+        </span></code><br>
+        <li>Mảng kí tự</li>
+        <code style="display:block; margin-left:80px; font-size:14px">char arr[100]={'2','8','t','e'};
+       </code>  
+    </ul>
+<h3>3. Các thao tác trên mảng:</h3>
+<h4 style="color:red">3.1 Các thao tác trên danh sách python</h4>
+<h4 style="color:darkgoldenrod">✼ Duyệt danh sách:</h4>
+<ul>
+   <li>Các phần tử trong danh sách (list) được đánh số từ 0 đến N-1</li>
+   <li>Truy cập tới từng phần tử bằng: <span>ten_danh_sach[chi_so]</li>
+   <li>Có thể: truy xuất, thay đổi giá trị, duyệt qua từng phần tử bằng vòng lặp</li>
+   <pre>
+      # Khởi tạo danh sách
+      n = 10
+      a = [1, 5, 2, 3, 4, 8, 7, 6, 9, 10]
+
+      print("Duyet thuan:", end=" ")
+      for i in range(n):
+         print(a[i], end=" ")
+
+      print("\nDuyet nguoc:", end=" ")
+      for i in range(n - 1, -1, -1):
+         print(a[i], end=" ")
+
+      # Danh sách ký tự
+      b = ['t','u','d','i','e','n','l','a','p','t','r','i','n','h']
+
+      print("\nDanh sách ki tu:", end=" ")
+      for i in range(len(b)):
+         print(b[i], end=" ")
+
+      Output : 
+      Duyet thuan : 1 5 2 3 4 8 7 6 9 10 
+      Duyet nguoc : 10 9 6 7 8 4 3 2 5 1
+      Danh sách ki tu : t u d i e n l a p t r i n h
+   </pre>
+</ul>
+<h4 style="color:darkgoldenrod">✼ Thay đổi giá trị của các phần tử trong danh sách:</h4>
+   <pre>
+      # Khởi tạo danh sách
+      b = [1, 5, 10, 4, 2, 6]
+
+      # Thay đổi giá trị
+      b[0] = 30
+      b[1] = 50
+      b[2] = 24
+      b[3] += 10
+      b[4] *= 3
+      b[5] //= 4   # dùng // để lấy phần nguyên giống C++
+
+      # In kết quả
+      print("Mang sau khi thay doi:", end=" ")
+      for i in range(len(b)):
+         print(b[i], end=" ")
+      
+      Output:
+      Mang sau khi thay doi: 30 50 24 14 6 1
+   </pre>
+<h4 style="color:darkgoldenrod">✼ Nhập danh sách từ bàn phím:</h4>
+<ul>
+   <p style="color:rgb(128, 161, 60)">Nhập danh sách từ bàn phím với kích thước cố định</p>
+   <pre>
+      # Khai báo mảng tối đa 1000 phần tử
+      a = [0] * 1000
+      n = int(input("Nhap n: "))
+      for i in range(n):
+         a[i] = int(input(f"a[{i}] = "))
+      print("Mang vua nhap:", end=" ")
+      for i in range(n):
+         print(a[i], end=" ")
+   </pre>
+   <p style="color:rgb(128, 161, 60)">Nhập danh sách từ bàn phím với kích thước vừa đủ</p>
+   <pre>
+      n = int(input("Nhap n: "))
+      a = []  # mảng rỗng
+      for i in range(n):
+         x = int(input(f"a[{i}] = "))
+         a.append(x)
+      print("Mang vua nhap:", end=" ")
+      for x in a:
+         print(x, end=" ")
+   </pre>
+   <p style="color:rgb(227, 27, 241)"><i>Chú ý :Python linh hoạt hơn C++, không cần khai báo kích thước, dùng append() để thêm phần tử.</i></p>
+</ul>
+
+<h4 style="color:red">3.2 Các thao tác trên mảng c++</h4>
+<h4 style="color:darkgoldenrod">✼ Duyệt mảng:</h4>
+<ul>
+   <li>Các phần tử được đánh số tính từ 0, ví dụ mảng có N phần tử chỉ số sẽ được đánh số từ 0 đến N-1.</li>
+   <li>Để truy cập tới từng phần tử của mảng ta dùng cú pháp: <span>tên_mảng[chỉ_số]</li>
+   <li>Thông qua chỉ số ta có thể truy xuất, thay đổi... giá trị của từng phần tử trong mảng tại chỉ số tương ứng.</li>
+   <li>Để duyệt qua các phần tử trong mảng thì bạn duyệt qua từng chỉ số:</li>
+   <pre>
+      #include <iostream>
+      using namespace std;
+
+      int main(){
+         int n = 10;
+         int a[10] = {1,5,2,3,4,8,7,6,9,10};
+         cout << "Duyet thuan : ";
+         for(int i = 0; i < n; i++){
+            cout << a[i] << " ";
+         }
+         cout << "\nDuyet nguoc : ";
+         for(int i = n - 1; i >= 0; i--){
+            cout << a[i] << " ";
+         }
+         char b[14] = {'t','u','d','i','e','n','l','a','p','t','r','i','n','h'};
+         cout << "\nMang ki tu : ";
+         for(int i = 0; i < sizeof(b); i++){
+            cout << b[i] << ' ';
+         }
+         return 0;
+      }
+
+      Output : 
+      Duyet thuan : 1 5 2 3 4 8 7 6 9 10 
+      Duyet nguoc : 10 9 6 7 8 4 3 2 5 1
+      Mang ki tu : t u d i e n l a p t r i n h
+   </pre>
+</ul>
+<h4 style="color:darkgoldenrod">✼ Thay đổi giá trị trong mảng:</h4>
+   <pre>
+      #include <iostream>
+      using namespace std;
+
+      int main(){
+         int b[6] = {1, 5, 10, 4, 2, 6};
+         b[0] = 30;
+         b[1] = 50;
+         b[2] = 24;
+         b[3] += 10;
+         b[4] *= 3;
+         b[5] /= 4;
+         cout << "Mang sau khi thay doi : ";
+         for(int i = 0; i < 6; i++){
+            cout << b[i] << ' ';
+         }
+         return 0;
+      }
+
+      Output : 
+      Mang sau khi thay doi : 30 50 24 14 6 1
+   </pre>
+<h4 style="color:darkgoldenrod">✼ Nhập mảng từ bàn phím:</h4>
+<ul>
+   <p style="color:rgb(128, 161, 60)">Nhập mảng từ bàn phím với kích thước cố định</p>
+   <li>Để nhập mảng từ bàn phím, đầu tiên nhập số lượng phần tử trong mảng sau đó nhập từng phần tử trong mảng từ đầu tới cuối.</li>
+   <li>Khi nhập mảng từ bàn phím bạn có thể khai báo mảng có kích thước cố định (1000, 2000, 100...) hoặc khai báo dựa trên số lượng phần tử mà đề bài cho.</li>
+   <pre>
+      #include <iostream>
+      using namespace std;
+
+      int main(){
+         //Lưu ý là mảng a chỉ lưu được tối đa 1000 phần tử
+         int n, a[1000];
+         cout << "Nhap n : ";
+         cin >> n;
+         for(int i = 0; i < n; i++){
+            cout << "a[" << i << "] = ";
+            cin >> a[i]; 
+         }
+         cout << "Mang vua nhap : ";
+         for(int i = 0; i < n; i++){
+            cout << a[i] << ' ';
+         }
+         return 0;
+      }
+   </pre>
+   <p style="color:rgb(227, 27, 241)"><i>Chú ý : Khi bạn sử dụng mảng cố định thì cần lưu ý tới dữ liệu của đề bài, ví dụ trong code trên khai báo mảng a[1000] thì nó sẽ đúng nếu ta sử dụng mảng a với các bài toán có số lượng phần tử ≤ 1000. Trường hợp đề bài cho nhiều hơn 1000 phần tử thì sẽ bị sai vì không đủ bộ nhớ.</i></p>
+   <p style="color:rgb(128, 161, 60)">Nhập mảng từ bàn phím với kích thước vừa đủ</p>
+   <pre>
+      #include <iostream>
+      using namespace std;
+
+      int main(){
+         //Lưu ý là mảng a chỉ lưu được tối đa 1000 phần tử
+         int n;
+         cout << "Nhap n : ";
+         cin >> n;
+         int a[n];
+         for(int i = 0; i < n; i++){
+            cout << "a[" << i << "] = ";
+            cin >> a[i]; 
+         }
+         cout << "Mang vua nhap : ";
+         for(int i = 0; i < n; i++){
+            cout << a[i] << ' ';
+         }
+         return 0;
+      }
+   </pre>
+</ul>
+  
+
+
+
