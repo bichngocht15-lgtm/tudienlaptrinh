@@ -132,7 +132,7 @@ pre {
 }
 
 .intro{
-	.max-width:900px;
+	max-width:900px;
 	margin:50px auto;
 	line-height:1.7;
 	text-align:justify;
@@ -196,12 +196,12 @@ pre {
 .reveal{
     opacity:0;
     transform:translate(40px);
-    trainsition:all 0.8 ease;
+    transition:all 0.8 ease;
 }
 
 .reveal.active{
     opacity:1;
-    trainsform:translateY(0);
+    transform:translateY(0);
 }
 
 
@@ -362,7 +362,7 @@ pre {
     padding:20px 20px;
     max-width:1400px;
     display:flex;
-    grap:30px;
+    gap:30px;
     align-items:stretch;
 }
 .sidebar{
@@ -379,9 +379,32 @@ pre {
     list-style:none;
     padding-left:0;
 }
+.sidebar ol{
+    list-style-type:upper-roman;
+    padding-left:10px;
+    margin:0;
+}
+.sidebar .number{
+    list-style-type:decimal;
+    padding-left:25px;
+    margin-top:5px;
+    color:#0000FF;
+}
+summary{
+    list-style:none;
+    cursor:pointer;
+}
+
+
 .sidebar li{
     margin-bottom:14px;
 }
+
+.sidebar li:hover{
+    color:#0b5ed7;
+    cursor:pointer;
+}
+
 .sidebar a{
     display:block;
     text-decoration:none;
@@ -436,8 +459,8 @@ pre {
 }
 
 pre{
-    background:#272822;
-    color:#f8f8f2;
+    background:#d8d9d5;
+    color:black;
     padding:5px;
     border-radius:6px;
     overflow-x:auto;
@@ -451,6 +474,31 @@ th{
     background:#1b2f6b;
     color:white;
 }
+td{
+    background:#e9f2fb;
+    color:black;
+}
+
+.matran {
+    width: 70%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.matran td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    background-color: white;   /* 👈 ghi đè màu xanh */
+    color:black;
+}
+
+.matran th {
+    border:1px solid black;
+    background-color:white;
+    color: red;
+}
+
 .function-section{
     padding:20px;
     line-height:1.7;
