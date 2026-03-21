@@ -1,0 +1,242 @@
+<h2>Cấu trúc dữ liệu mảng 2 chiều c++</h2>
+<h3 style="color:red">1. Khái niệm mảng 2 chiều</h3>
+<p>Trong ngôn ngữ C++ khi cần giải quyết các bài toán liên quan tới ma trận hoặc bảng số thì mảng 2 chiều là cấu trúc dữ liệu có thể giúp bạn lưu trữ dữ liệu đầu vào.</p>
+<p>Mảng 2 chiều tương tự như một bảng số gồm hàng và cột, mảng 2 chiều chính là một mảng các mảng 1 chiều.</p>
+<p>Các phần tử trong mảng được đánh số bắt đầu từ 0</li>
+<p>Để truy cập vào phần tử trong mảng 2 chiều ta luôn dùng chỉ số hàng trước, chỉ số cột sau.</p>
+<h4 style="color:red">Cú pháp khai báo mảng</h4>
+<div align="center" style="border:1px solid black; padding:10px; margin:10px; color:brown;background-color:honeydew; width:70%;"><strong>Kiểu_dữ_liệu tên_mảng[rows][cols]</strong></div>
+<p>Trong đó:</p>
+<ul>
+    <li>Kiểu_dữ_liệu: kiểu dữ liệu của phần tử trong mảng như: int, float, char, double...</li>
+    <li>tên_mảng: tên mảng 2 chiều</li>
+    <li>rows: số hàng của mảng 2 chiều</li>
+    <li>cols: số cột của mảng 2 chiều</li>
+</ul>
+<p style="color:brown"><strong>Ví dụ: a[4][5]; Mảng 2 chiều gồm 4 hàng 5 cột</strong></p>
+<table class="matran">
+    <tr>
+        <th></th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+    </tr>
+    <tr>
+        <td style="color:red"><strong>0</strong></td>
+        <td>a[0][0]</td>
+        <td>a[0][1]</td>
+        <td>a[0][2]</td>
+        <td>a[0][3]</td>
+        <td>a[0][4]</td>
+    </tr>
+    <tr>
+        <td style="color:red"><strong>1</strong></td>
+        <td>a[1][0]</td>
+        <td>a[1][1]</td>
+        <td>a[1][2]</td>
+        <td>a[1][3]</td>
+        <td>a[1][4]</td>
+    </tr>
+     <tr>
+        <td style="color:red"><strong>2</strong></td>
+        <td>a[2][0]</td>
+        <td>a[2][1]</td>
+        <td>a[2][2]</td>
+        <td>a[2][3]</td>
+        <td>a[2][4]</td>
+    </tr>
+     <tr>
+        <td style="color:red"><strong>3</strong></td>
+        <td>a[3][0]</td>
+        <td>a[3][1]</td>
+        <td>a[3][2]</td>
+        <td>a[3][3]</td>
+        <td>a[3][4]</td>
+    </tr>
+</table>
+
+<p style="color:brown"><strong>Khai báo mảng 2 chiều bạn có thể khai báo thủ công như sau: </strong></p>
+<pre>
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main(){
+        int a[3][4] = {
+            {1, 2, 3, 1},
+            {4, 1, 5, 2},
+            {3, 7, 9, 0}
+        };
+        cout << "a[0][2] = " << a[0][2] << endl;
+        cout << "a[1][3] = " << a[1][3] << endl; 
+        return 0;
+    }
+    
+    Output : 
+    a[0][2] = 3
+    a[1][3] = 2
+</pre>
+<p class="note">Chú ý : Trong mảng 2 chiều không được truy cập vào các chỉ số hàng hay cột không hợp lệ.</p>
+
+<h3 style="color:red">2. Nhập xuất Mảng 2 chiều</h3>
+<p>Để in ra mảng 2 chiều ta dùng 2 vòng lặp lồng nhau, vòng lặp ngoài duyệt qua hàng, vòng for trong duyệt qua từng cột của hàng.</p>
+<p style="color:brown"><strong>Ví dụ 1: Nhập và xuất mảng 2 chiều với kích thước cố định:</strong></p>
+<p class="note">Chú ý code bên dưới sẽ đúng nếu giới hạn mảng 2 chiều của đề bài không vượt quá 205 hàng và 205 cột.
+Nếu đề bài cho số lượng hàng và cột lớn hơn ta cần khai báo mảng 2 chiều lớn hơn để phù hợp với bài toán</p>
+<pre>
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main(){
+        int n, m; // n : hang, m : cot
+        int a[205][205]; // 205 x 205
+        cout << "Nhap so hang, cot : ";
+        cin >> n >> m;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << "a[" << i << "][" << j << "] = ";
+                cin >> a[i][j];
+            }
+        }
+        cout << "Mang vua nhap :\n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << a[i][j] << " ";
+            }
+            cout << endl;
+        }
+        return 0;
+    }
+</pre>
+
+<p style="color:brown"><strong>Ví dụ 2: Nhập mảng 2 chiều dựa vào số hàng, cột của đề bài:</strong></p>
+<pre>
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main(){
+        int n, m; // n : hang, m : cot
+        cout << "Nhap so hang, cot : ";
+        cin >> n >> m;
+        int a[n][m];
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << "a[" << i << "][" << j << "] = ";
+                cin >> a[i][j];
+            }
+        }
+        cout << "Mang vua nhap :\n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << a[i][j] << " ";
+            }
+            cout << endl;
+        }
+        return 0;
+    }
+</pre>
+
+<h3 style="color:red">3. Mảng 2 Chiều và Hàm</h3>
+<p>Mảng 2 chiều có thể làm tham số của hàm, tuy nhiên khi hàm có tham số là mảng 2 chiều thì ta cần chỉ định số lượng cột của mảng 2 chiều.
+Khi gọi hàm thì đối số truyền vào phải có số cột giống với số cột của mảng 2 chiều trong tham số.</p>
+
+<p style="color:brown"><strong>Ví dụ 1: Hàm nhập và xuất mảng:</strong></p>
+<pre>
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    void nhap(int a[][205], int n, int m){
+        cout << "Nhap mang : \n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << "a[" << i << "][" << j << "] = ";
+                cin >> a[i][j];
+            }
+        }
+    }
+
+    void xuat(int a[][205], int n, int m){
+        cout << "Mang 2 chieu : \n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << a[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    int main(){
+        int n, m, a[205][205];
+        cout << "Nhap so hang, cot : ";
+        cin >> n >> m;
+        nhap(a, n, m);
+        xuat(a, n, m);
+        return 0;
+    }
+
+</pre>
+
+<p style="color:brown"><strong>Ví dụ 2 : Đếm số lượng số nguyên tố trong mảng 2 chiều:</strong></p>
+<pre>
+    #include &lt;iostream&gt;
+    #include &lt;math.h&gt;
+
+    using namespace std;
+
+    bool nt(int n){
+        for(int i = 2; i <= sqrt(n); i++){
+            if(n % i == 0) return false;
+        }
+        return n > 1;
+    }
+
+    void nhap(int a[][205], int n, int m){
+        cout << "Nhap mang : \n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << "a[" << i << "][" << j << "] = ";
+                cin >> a[i][j];
+            }
+        }
+    }
+
+    void xuat(int a[][205], int n, int m){
+        cout << "Mang 2 chieu : \n";
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cout << a[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    int dem(int a[][205], int n, int m){
+        int ans = 0;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(nt(a[i][j])){
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    int main(){
+        int n, m, a[205][205];
+        cout << "Nhap so hang, cot : ";
+        cin >> n >> m;
+        nhap(a, n, m);
+        xuat(a, n, m);
+        cout << "So luong so nguyen to : " << dem(a, n, m) << endl;
+        return 0;
+    }
+</pre>
+
+ 
+
